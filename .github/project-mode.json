@@ -11,8 +11,21 @@
   "legacy_prototype_status": "reference-only",
   "standalone_webgl_release": false,
   "android_apk_release": false,
-  "release_status": "migration-toolchain-unverified",
+  "release_status": "sr-mods-launcher-integration-pending",
   "technical_source_of_truth": "docs/MOD_ARCHITECTURE.md",
   "roadmap": "docs/ROADMAP.md",
-  "constitution_amendment": "docs/PROJECT_CONSTITUTION_MOD_AMENDMENT.md"
+  "constitution_amendment": "docs/PROJECT_CONSTITUTION_MOD_AMENDMENT.md",
+  "canonical_mod_manager": "https://github.com/ArtYudin89/sr-mods-launcher",
+  "canonical_mod_manager_name": "SR Mods Launcher",
+  "canonical_mod_manager_scope": [
+    "mod-pack-composition",
+    "profiles",
+    "install",
+    "update",
+    "modcfg-sync",
+    "game-launch"
+  ],
+  "custom_launcher_policy": "reserve-native-bridge-only",
+  "reserve_native_launcher": "ChildrenOfEltanLauncher.exe",
+  "reserve_native_launcher_status": "fallback-until-shared-launcher-covers-required-hooks"
 }
