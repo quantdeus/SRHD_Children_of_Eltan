@@ -1,0 +1,23 @@
+unknown ceRaceBase=GetShipRuins(Player());
+if(!ceRaceBase) exit;
+if(ShipTypeN(ceRaceBase)!=t_PB) {
+  MessageBox(CT('CE.RaceOverlay.BaseOnly'));
+  exit;
+}
+ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Ensure'));
+if(ShipFindCustomShipInfoByType(Player(),'CE_RaceIdentity')==-1) exit;
+if(ShipCustomShipInfoData(Player(),'CE_RaceIdentity',3)!=1) exit;
+unknown ceRaceArmFn=ImportedFunction('CESecondMapAdapter','CEAdapterGalaxyIsSecondHome');
+int ceRaceArm=ceRaceArmFn(GalaxyPtr());
+if(ceRaceArm!=0 && ceRaceArm!=1) exit;
+unknown ceRacePick=NumberBox('Bm.Items.2Minerals',CT('CE.RaceOverlay.Menu'+ceRaceArm),1,5,0);
+if(ceRacePick=='Cancel') exit;
+int ceRaceChoice=ceRacePick;
+if(ceRaceChoice<1 || ceRaceChoice>5) exit;
+int ceRaceId=ceRaceArm*5+ceRaceChoice;
+if(!MessageBoxYesNo(CT('CE.RaceOverlay.Confirm')+CT('CE.RaceOverlay.Names.'+ceRaceId))) exit;
+ShipPilotRace(Player(),ceRaceChoice-1);
+ShipFace(Player(),'New');
+ShipCustomShipInfoData(Player(),'CE_RaceIdentity',2,ceRaceId);
+ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Refresh'));
+MessageBox(CT('CE.RaceOverlay.Selected')+CT('CE.RaceOverlay.Names.'+ceRaceId));

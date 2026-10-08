@@ -1,0 +1,10 @@
+unknown ceRaceArmFn=ImportedFunction('CESecondMapAdapter','CEAdapterGalaxyIsSecondHome');
+int ceRaceArm=ceRaceArmFn(GalaxyPtr());
+if(ceRaceArm!=0 && ceRaceArm!=1) exit;
+int ceRaceSlot=ShipPilotRace(Player());
+if(ceRaceSlot<0 || ceRaceSlot>4) exit;
+if(ShipFindCustomShipInfoByType(Player(),'CE_RaceIdentity')==-1) {
+  int ceRaceId=1+ceRaceArm*5+ceRaceSlot;
+  ShipAddCustomShipInfo(Player(),'CE_RaceIdentity','',ceRaceId,ceRaceId,1);
+}
+ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Refresh'));

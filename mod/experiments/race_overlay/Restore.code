@@ -1,0 +1,21 @@
+unknown ceRaceFetch=ImportedFunction('CESecondMapAdapter','CEAdapterFetchPlayerValue');
+int ceRaceSlot=ceRaceFetch(18);
+int ceRaceFace=ceRaceFetch(19);
+int ceRaceOrigin=ceRaceFetch(20);
+int ceRaceIdentity=ceRaceFetch(21);
+int ceRaceSchema=ceRaceFetch(22);
+int ceRaceExpected=ceRaceIdentity-1;
+if(ceRaceExpected>=5) ceRaceExpected=ceRaceExpected-5;
+if(ceRaceFetch(17)!=1128616497 || ceRaceSchema!=1 || ceRaceSlot<0 || ceRaceSlot>4 || ceRaceSlot!=ceRaceExpected || ceRaceFace<0 || ceRaceOrigin<1 || ceRaceOrigin>10 || ceRaceIdentity<1 || ceRaceIdentity>10) {
+  SFT('CE_RACE_RESTORE_REJECTED');
+  MessageBox(CT('CE.RaceOverlay.InvalidTransfer'));
+  exit;
+}
+if(ShipFindCustomShipInfoByType(Player(),'CE_RaceIdentity')==-1) ShipAddCustomShipInfo(Player(),'CE_RaceIdentity','',ceRaceOrigin,ceRaceIdentity,1);
+ShipCustomShipInfoData(Player(),'CE_RaceIdentity',1,ceRaceOrigin);
+ShipCustomShipInfoData(Player(),'CE_RaceIdentity',2,ceRaceIdentity);
+ShipCustomShipInfoData(Player(),'CE_RaceIdentity',3,1);
+ShipPilotRace(Player(),ceRaceSlot);
+ShipFace(Player(),ceRaceFace);
+ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Refresh'));
+SFT('CE_RACE_RESTORED',ceRaceOrigin,ceRaceIdentity,ceRaceSlot);

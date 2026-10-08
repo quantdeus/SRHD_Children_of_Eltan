@@ -1,0 +1,22 @@
+int ceRaceCaptureOK=0;
+unknown ceRaceStash=ImportedFunction('CESecondMapAdapter','CEAdapterStashPlayerValue');
+ceRaceStash(17,0);
+ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Ensure'));
+if(ShipFindCustomShipInfoByType(Player(),'CE_RaceIdentity')!=-1) {
+  int ceRaceOrigin=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',1);
+  int ceRaceIdentity=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',2);
+  int ceRaceSchema=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',3);
+  int ceRaceSlot=ShipPilotRace(Player());
+  int ceRaceFace=ShipFace(Player(),'Init');
+  int ceRaceExpected=ceRaceIdentity-1;
+  if(ceRaceExpected>=5) ceRaceExpected=ceRaceExpected-5;
+  if(ceRaceSchema==1 && ceRaceOrigin>=1 && ceRaceOrigin<=10 && ceRaceIdentity>=1 && ceRaceIdentity<=10 && ceRaceSlot>=0 && ceRaceSlot<=4 && ceRaceSlot==ceRaceExpected && ceRaceFace>=0) {
+    ceRaceStash(18,ceRaceSlot);
+    ceRaceStash(19,ceRaceFace);
+    ceRaceStash(20,ceRaceOrigin);
+    ceRaceStash(21,ceRaceIdentity);
+    ceRaceStash(22,1);
+    ceRaceStash(17,1128616497);
+    ceRaceCaptureOK=1;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/System-tex/deti_eltan",
+  "commit": "149da8985709f285cebf053cb7aef1c1555c5bfe",
+  "files": {
+    "src/scripts/CE_MapSmoke.rson": "37f6b01e9069bc7a72a3b68bad10c1be301b2018da2a98898dbcdd31120c2e77",
+    "src/config/CE_MapSmoke.Main.txt": "99ea222df85abc29c371f20f65000e7d88496ea969376e769b286926b5519e3f",
+    "src/config/CE_MapSmoke.Lang.txt": "943277cd1de33d7b9cd8b1ba63826d3c2811fc109231f996246258721fffb460",
+    "src/config/CE_InterarmTransit.Lang.txt": "f0e19ac5898b20281a0cbd34c2bfd39c0c67cf2ea7c0e8186f2adbd5c85f6306",
+    "src/engine_adapter/ce_second_map_adapter.c": "02ab250e64b892b2215165b03366bb2bebef4dd31f168457dcaedfceeae852c1"
+  }
+}

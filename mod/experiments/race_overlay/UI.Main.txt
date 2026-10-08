@@ -1,0 +1,17 @@
+ML ^{
+    RuinsTalk ^{
+        Panel ^{
+            CERaceOverlay ^{
+                Panel ^{
+                    Active=True
+                    Name=CE_RaceOverlayKeys
+                    Pos=0,0,-102
+                    Size=1,1
+                    OnKey ~{
+                        0=if(KEY==82 && KEYMOD==3) ExecuteCodeFromString(GenerateCodeStringFromBlock('CE.RaceOverlay.Menu'));
+                    }
+                }
+            }
+        }
+    }
+}

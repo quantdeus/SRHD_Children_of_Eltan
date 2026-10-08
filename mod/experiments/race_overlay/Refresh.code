@@ -1,0 +1,7 @@
+if(ShipFindCustomShipInfoByType(Player(),'CE_RaceIdentity')==-1) exit;
+int ceRaceSchema=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',3);
+int ceRaceOrigin=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',1);
+int ceRaceIdentity=ShipCustomShipInfoData(Player(),'CE_RaceIdentity',2);
+if(ceRaceSchema!=1 || ceRaceOrigin<1 || ceRaceOrigin>10 || ceRaceIdentity<1 || ceRaceIdentity>10) exit;
+ShipCustomShipInfoTextData(Player(),'CE_RaceIdentity',1,CT('CE.RaceOverlay.Names.'+ceRaceOrigin));
+ShipCustomShipInfoTextData(Player(),'CE_RaceIdentity',2,CT('CE.RaceOverlay.Names.'+ceRaceIdentity));
